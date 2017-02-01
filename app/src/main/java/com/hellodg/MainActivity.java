@@ -2,6 +2,7 @@ package com.hellodg;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 import android.widget.TextView;
 
 import com.hellodg.data.Company;
@@ -33,7 +34,13 @@ public class MainActivity extends AppCompatActivity {
 		                                                                                     .build()
 		                                                                                     .buildSoftwareDeveloperGroup();
 		TextView softwareTv = (TextView) findViewById(R.id.software_developer_group_output_tv);
-		softwareTv.setText("Software developer group: \n\n" + softwareDeveloperGroup.toString() + ", Boss: " + softwareDeveloperGroup.getBoss() + ", Super-user:" + softwareDeveloperGroup.getSuperUser() + ", " +
-				                   "Internal-user:" + softwareDeveloperGroup.getInternalUser() + ", External-user:" + softwareDeveloperGroup.getExternalUser());
+		softwareTv.setText("Software developer group: \n\n" + softwareDeveloperGroup.toString() + ", Boss: " + softwareDeveloperGroup.getBoss() + ", Super-user:" + softwareDeveloperGroup
+				.getSuperUser() + ", " + "Internal-user:" + softwareDeveloperGroup.getInternalUser() + ", External-user:" + softwareDeveloperGroup.getExternalUser());
+	}
+
+	public void onNetSample(View view) {
+	}
+
+	public void onMvp(View view) {
 	}
 }

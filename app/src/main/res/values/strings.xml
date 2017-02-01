@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">HelloDagger2</string>
+    <string name="btn_net_sample">call with Retrofit, RxAndroid and data-binding</string>
+    <string name="btn_mvp">simple with MVP</string>
 </resources>
