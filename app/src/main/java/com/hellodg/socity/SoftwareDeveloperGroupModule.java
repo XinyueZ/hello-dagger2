@@ -28,12 +28,12 @@ public final class SoftwareDeveloperGroupModule {
 
 	@Provides
 	static InternalUser provideInternalUser() {
-		return new InternalUser("2", "Only one internal", 35);
+		return new InternalUser("2", "Only one internal", 56);
 	}
 
 	@Provides
 	static ExternalUser provideExternalUser() {
-		return new ExternalUser("3", "Only one external", 35);
+		return new ExternalUser("3", "Only one external", 67);
 	}
 
 	@Provides

@@ -12,7 +12,7 @@ import com.hellodg.socity.DaggerSoftwareDeveloperGroupComponent;
 import javax.inject.Inject;
 
 public class MainActivity extends AppCompatActivity {
-	@Inject Company mCompany; //Init the Company by injection implicitly .
+	@Inject Company mCompany;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -28,12 +28,12 @@ public class MainActivity extends AppCompatActivity {
 		companyTv.setText("Company: \n\n" + mCompany.toString() + ", Boss: " + mCompany.getBoss() + ", Super-user:" + mCompany.getSuperUser());
 
 
-		// Init the SoftwareDeveloperGroup by injection explicitly.
+		//Init the SoftwareDeveloperGroup by injection explicitly.
 		SoftwareDeveloperGroup softwareDeveloperGroup = DaggerSoftwareDeveloperGroupComponent.builder()
 		                                                                                     .build()
 		                                                                                     .buildSoftwareDeveloperGroup();
 		TextView softwareTv = (TextView) findViewById(R.id.software_developer_group_output_tv);
-		softwareTv.setText("Software developer group: \n\n" + mCompany.toString() + ", Boss: " + softwareDeveloperGroup.getBoss() + ", Super-user:" + softwareDeveloperGroup.getSuperUser() + ", " +
+		softwareTv.setText("Software developer group: \n\n" + softwareDeveloperGroup.toString() + ", Boss: " + softwareDeveloperGroup.getBoss() + ", Super-user:" + softwareDeveloperGroup.getSuperUser() + ", " +
 				                   "Internal-user:" + softwareDeveloperGroup.getInternalUser() + ", External-user:" + softwareDeveloperGroup.getExternalUser());
 	}
 }
