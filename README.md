@@ -136,5 +136,5 @@ public final class Playground {
 2. Run the app, if can not build, do **clean**  and run it. You'll see the output of ```mPlayground```, with luck of ```@Inject```, it has been created automatically.
 
  
-
+__still to come...__
 
