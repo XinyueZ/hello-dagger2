@@ -6,6 +6,8 @@ import com.hellodg.data.InternalUser;
 import com.hellodg.data.SoftwareDeveloperGroup;
 import com.hellodg.data.SuperUser;
 
+import javax.inject.Singleton;
+
 import dagger.Module;
 import dagger.Provides;
 
