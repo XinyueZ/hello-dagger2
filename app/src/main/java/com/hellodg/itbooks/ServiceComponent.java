@@ -9,4 +9,5 @@ import dagger.Component;
 @Component(modules = ServiceModule.class, dependencies = RetrofitComponent.class)
 public interface ServiceComponent {
 	void injectItBooksObservable(ItBookListActivity activity);
+	void injectItBooks(ItBooksListAdapter adapter);
 }

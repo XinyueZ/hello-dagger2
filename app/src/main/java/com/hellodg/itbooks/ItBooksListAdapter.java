@@ -11,13 +11,11 @@ import com.hellodg.data.itbooks.Book;
 import com.hellodg.data.itbooks.ItBooks;
 import com.hellodg.databinding.ItemItBookBinding;
 
+import javax.inject.Inject;
+
 
 public final class ItBooksListAdapter extends RecyclerView.Adapter<ItBooksListAdapter.ItBooksListAdapterViewHolder> {
-	private ItBooks mItBooks;
-
-	public ItBooksListAdapter(ItBooks itBooks) {
-		mItBooks = itBooks;
-	}
+	@Inject ItBooks mItBooks;
 
 	@Override
 	public ItBooksListAdapterViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -36,7 +34,7 @@ public final class ItBooksListAdapter extends RecyclerView.Adapter<ItBooksListAd
 
 	@Override
 	public int getItemCount() {
-		return mItBooks.getBookList()
+		return mItBooks == null ? 0:mItBooks.getBookList()
 		               .size();
 	}
 

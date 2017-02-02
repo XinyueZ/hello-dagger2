@@ -21,9 +21,9 @@ import io.reactivex.functions.Consumer;
 
 public final class ItBookListActivity extends AppCompatActivity {
 	@Inject Observable<ItBooks> mItBooksObservable;
-	private  ItBooksListAdapter mItBooksListAdapter;
+	private ItBooksListAdapter mItBooksListAdapter;
 	private ItBooksActivityBinding mBinding;
-	private ServiceComponent mServiceComponent;
+	private RetrofitComponent mRetrofitComponent;
 
 	/**
 	 * Show single instance of {@link ItBookListActivity}
@@ -43,22 +43,26 @@ public final class ItBookListActivity extends AppCompatActivity {
 
 		mBinding.itBooksRv.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
 
-		RetrofitComponent retrofitComponent = DaggerRetrofitComponent.builder()
-		                                                             .retrofitModule(new RetrofitModule("http://it-ebooks-api.info/"))
-		                                                             .build();
-		mServiceComponent = DaggerServiceComponent.builder()
-		                      .retrofitComponent(retrofitComponent)
-		                      .build();
-		mServiceComponent.injectItBooksObservable(this);
+		mRetrofitComponent = DaggerRetrofitComponent.builder()
+		                                            .retrofitModule(new RetrofitModule("http://it-ebooks-api.info/"))
+		                                            .build();
+		DaggerServiceComponent.builder()
+		                      .serviceModule(new ServiceModule())
+		                      .retrofitComponent(mRetrofitComponent)
+		                      .build()
+		                      .injectItBooksObservable(this);
 
 		mItBooksObservable.subscribe(new Consumer<ItBooks>() {
 			@Override
 			public void accept(ItBooks itBooks) throws Exception {
-				mBinding.feedsOutputTv.setText(itBooks.toString());
-				mItBooksListAdapter = new ItBooksListAdapter(itBooks);
-				mBinding.itBooksRv.setAdapter(mItBooksListAdapter);
+				DaggerServiceComponent.builder()
+				                      .serviceModule(new ServiceModule(itBooks))
+				                      .retrofitComponent(mRetrofitComponent)
+				                      .build()
+				                      .injectItBooks((ItBooksListAdapter) mBinding.itBooksRv.getAdapter());
+				mBinding.itBooksRv.getAdapter().notifyDataSetChanged();
 			}
 		});
-
+		mBinding.itBooksRv.setAdapter(new ItBooksListAdapter());
 	}
 }

@@ -4,6 +4,8 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
+import javax.inject.Inject;
+
 
 public final class ItBooks {
 	@SerializedName("Error") private int mError;
@@ -11,6 +13,12 @@ public final class ItBooks {
 	@SerializedName("Total") private String mTotal;
 	@SerializedName("Page") private int mPage;
 	@SerializedName("Books") private List<Book> mBookList;
+
+
+	@Inject
+	public ItBooks() {
+
+	}
 
 	public ItBooks(int error, float time, String total, int page, List<Book> bookList) {
 		mError = error;

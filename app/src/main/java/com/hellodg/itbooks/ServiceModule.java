@@ -12,6 +12,15 @@ import retrofit2.Retrofit;
 
 @Module
 public class ServiceModule {
+	private ItBooks mItBooks;
+
+	public ServiceModule(ItBooks itBooks) {
+		mItBooks = itBooks;
+	}
+
+	public ServiceModule() {
+	}
+
 	@Provides
 	static Observable<ItBooks> provideObservableItBooks(Retrofit retrofit) {
 		return retrofit.create(Service.class)
@@ -21,7 +30,7 @@ public class ServiceModule {
 	}
 
 	@Provides
-	static ItBooks provideItBooks(ItBooks itBooks) {
-		return itBooks;
+	ItBooks provideItBooks() {
+		return mItBooks;
 	}
 }
