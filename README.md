@@ -102,7 +102,7 @@ public final class Playground {
  }
  
  ```
- 2. We use data-binding to create basic layout, and try to use ```mPlayground``` to print out some information.
+2. We use data-binding to create basic layout, and try to use ```mPlayground``` to print out some information.
  ```java
  public final class SocietyActivity extends AppCompatActivity {
  	@Inject Playground mPlayground;
@@ -121,7 +121,7 @@ public final class Playground {
 
 ### How to create objects that we need?
 
-3. We introduce **Component**, that can create, build, give variables of ```@Inject``` an instance of it in target place.
+1. We introduce **Component**, that can create, build, give variables of ```@Inject``` an instance of it in target place.
  
  ```java
  @Component
@@ -133,7 +133,7 @@ public final class Playground {
  - ```SocietyActivity activity``` is the target place contains  the variables of ```@Inject```, here is ```@Inject Playground mPlayground```.
  - In ```Playground``` we define default constructor with annotation ```@Inject```, means "Hi, I can provide at least an instance automatically" for those who have ```@Inject``` .
 
-4. Run the app, if can not build, do **clean**  and run it. You'll see the output of ```mPlayground```, with luck of ```Inject```, it has been created automatically.
+2. Run the app, if can not build, do **clean**  and run it. You'll see the output of ```mPlayground```, with luck of ```Inject```, it has been created automatically.
 
  
 
