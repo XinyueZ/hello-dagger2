@@ -1,7 +1,7 @@
-package com.hellodg.socity;
+package com.hellodg.society;
 
 
-import com.hellodg.data.SoftwareDeveloperGroup;
+import com.hellodg.data.society.SoftwareDeveloperGroup;
 
 import javax.inject.Singleton;
 

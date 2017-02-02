@@ -1,12 +1,10 @@
-package com.hellodg.socity;
+package com.hellodg.society;
 
-import com.hellodg.data.Boss;
-import com.hellodg.data.ExternalUser;
-import com.hellodg.data.InternalUser;
-import com.hellodg.data.SoftwareDeveloperGroup;
-import com.hellodg.data.SuperUser;
-
-import javax.inject.Singleton;
+import com.hellodg.data.society.Boss;
+import com.hellodg.data.society.ExternalUser;
+import com.hellodg.data.society.InternalUser;
+import com.hellodg.data.society.SoftwareDeveloperGroup;
+import com.hellodg.data.society.SuperUser;
 
 import dagger.Module;
 import dagger.Provides;

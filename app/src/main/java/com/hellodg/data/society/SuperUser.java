@@ -1,4 +1,4 @@
-package com.hellodg.data;
+package com.hellodg.data.society;
 
 public final class SuperUser extends AbstractUser {
 

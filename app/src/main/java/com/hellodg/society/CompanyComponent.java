@@ -1,7 +1,5 @@
-package com.hellodg.socity;
+package com.hellodg.society;
 
-
-import com.hellodg.MainActivity;
 
 import javax.inject.Singleton;
 

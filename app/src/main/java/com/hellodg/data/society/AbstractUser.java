@@ -1,4 +1,4 @@
-package com.hellodg.data;
+package com.hellodg.data.society;
 
 public abstract class AbstractUser {
 	private final String mId;

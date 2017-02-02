@@ -1,9 +1,9 @@
-package com.hellodg.socity;
+package com.hellodg.society;
 
 
-import com.hellodg.data.Boss;
-import com.hellodg.data.Company;
-import com.hellodg.data.SuperUser;
+import com.hellodg.data.society.Boss;
+import com.hellodg.data.society.Company;
+import com.hellodg.data.society.SuperUser;
 
 import dagger.Module;
 import dagger.Provides;
