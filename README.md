@@ -57,8 +57,11 @@ them the  ```foo``` may not be created possibly, and the client oder consumer wh
 
 > We don't want to know how  ```foo``` will be created, or we don't care how many methods that can create it.
 
+What should the ```variable```s do so that ehy can be created gracefully and independently ? 
+The answer is easy, give them an annotation ```@Inject```.
+
 ```
-@inject Foo foo;
+@Inject Foo foo;
 ..
 Dagger2(foo);
 ....
@@ -66,6 +69,55 @@ foo.doFool();
 
 ```
 
-# Start
+# Start with example
+
+We define a world named "society" and it has a "playground", a "company" , a "software developer group". The "company" has one boss, one super-user. The "software developer group" has "boss", "super-user", "internal user", "external-user". In our example we only print out some information with ```toString()``` .
+
+1. Show all in ```SocietyActivity```, we define variable of ```Playground``` with ``` @Inject  ```, that means we don't care how it is created, it might be created "automatically". 
+ 
+ ```java
+ public final class SocietyActivity extends AppCompatActivity {
+ 	@Inject Playground mPlayground;
+ 
+ 	@Override
+ 	protected void onCreate(Bundle savedInstanceState) {
+ 		super.onCreate(savedInstanceState);
+ 	} 
+ }
+ 
+ ```
+ 2. We use data-binding to create basic layout, and try to use ```mPlayground``` to print out some information.
+ ```java
+ public final class SocietyActivity extends AppCompatActivity {
+ 	@Inject Playground mPlayground;
+ 	private ActivityMainBinding mBinding;
+ 
+ 	@Override
+ 	protected void onCreate(Bundle savedInstanceState) {
+ 		super.onCreate(savedInstanceState);
+ 		mBinding = DataBindingUtil.setContentView(this, R.layout.activity_main);
+  
+ 		mBinding.playgroundOutputTv.setText("Playground: \n\n" + mPlayground.toString());
+    } 
+ }
+ ```
+**Oha , if we build the app, CRASH, because the ```mPlayground``` can not be created automatically.**
+
+### How to create objects that we need?
+
+3. We introduce **Component**, that can create, build variables of ```@Inject``` in target place.
+ 
+ ```java
+ @Component
+ public interface SocietyComponent {
+ 	void createSociety(SocietyActivity activity);
+ }
+ ```
+ - ```createSociety``` provides input for target place who needs creation of the variables of ```@Inject``` .
+ - ```SocietyActivity activity``` is the target place contains  the variables of ```@Inject```, here is ```@Inject Playground mPlayground```.
+
+4. Run the app, if can not build, do **clean**  and run it. You'll see the output of ```mPlayground```.
+
+ 
 
 

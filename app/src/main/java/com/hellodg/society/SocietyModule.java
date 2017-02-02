@@ -9,7 +9,7 @@ import dagger.Module;
 import dagger.Provides;
 
 @Module
-public final class CompanyModule {
+public final class SocietyModule {
 	/**
 	 * Provide a boss, this method is useless, because the {@link Boss} has a default constructor.
 	 *

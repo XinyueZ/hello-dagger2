@@ -21,7 +21,6 @@ import io.reactivex.functions.Consumer;
 
 public final class ItBookListActivity extends AppCompatActivity {
 	@Inject Observable<ItBooks> mItBooksObservable;
-	private ItBooksListAdapter mItBooksListAdapter;
 	private ItBooksActivityBinding mBinding;
 	private RetrofitComponent mRetrofitComponent;
 

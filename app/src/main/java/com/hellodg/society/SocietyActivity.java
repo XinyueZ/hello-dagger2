@@ -5,16 +5,19 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
-import com.hellodg.itbooks.ItBookListActivity;
 import com.hellodg.R;
 import com.hellodg.data.society.Company;
+import com.hellodg.data.society.Playground;
 import com.hellodg.data.society.SoftwareDeveloperGroup;
 import com.hellodg.databinding.ActivityMainBinding;
+import com.hellodg.itbooks.ItBookListActivity;
 
 import javax.inject.Inject;
 
-public class SocietyActivity extends AppCompatActivity {
+public final class SocietyActivity extends AppCompatActivity {
 	@Inject Company mCompany;
+	@Inject Playground mPlayground;
+
 	private ActivityMainBinding mBinding;
 
 	@Override
@@ -22,11 +25,19 @@ public class SocietyActivity extends AppCompatActivity {
 		super.onCreate(savedInstanceState);
 		mBinding = DataBindingUtil.setContentView(this, R.layout.activity_main);
 
+
 		//Init the Company by injection implicitly .
-		DaggerCompanyComponent.builder()
+		DaggerSocietyComponent.builder()
 		                      .build()
-		                      .buildCompany(this);
+		                      .createSociety(this);
+
+
+		//Init the Playground easily without module.
+		mBinding.playgroundOutputTv.setText("Playground: \n\n" + mPlayground.toString());
+
+
 		mBinding.companyOutputTv.setText("Company: \n\n" + mCompany.toString() + ", Boss: " + mCompany.getBoss() + ", Super-user:" + mCompany.getSuperUser());
+
 
 		//Init the SoftwareDeveloperGroup by injection explicitly.
 		SoftwareDeveloperGroup softwareDeveloperGroup = DaggerSoftwareDeveloperGroupComponent.builder()
