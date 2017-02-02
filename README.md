@@ -76,6 +76,22 @@ We define a world named "society" and it has a "playground", a "company" , a "so
 1. Show all in ```SocietyActivity```, we define variable of ```Playground``` with ``` @Inject  ```, that means we don't care how it is created, it might be created "automatically". 
  
  ```java
+  
+public final class Playground {
+	private String mPemo;
+
+	@Inject
+	public Playground() {
+		mPemo = "Playground is playground, it is simple";
+	}
+
+	@Override
+	public String toString() {
+		return mPemo +   "\n\n";
+	}
+}
+
+
  public final class SocietyActivity extends AppCompatActivity {
  	@Inject Playground mPlayground;
  
@@ -105,7 +121,7 @@ We define a world named "society" and it has a "playground", a "company" , a "so
 
 ### How to create objects that we need?
 
-3. We introduce **Component**, that can create, build variables of ```@Inject``` in target place.
+3. We introduce **Component**, that can create, build, give variables of ```@Inject``` an instance of it in target place.
  
  ```java
  @Component
@@ -115,8 +131,9 @@ We define a world named "society" and it has a "playground", a "company" , a "so
  ```
  - ```createSociety``` provides input for target place who needs creation of the variables of ```@Inject``` .
  - ```SocietyActivity activity``` is the target place contains  the variables of ```@Inject```, here is ```@Inject Playground mPlayground```.
+ - In ```Playground``` we define default constructor with annotation ```@Inject```, means "Hi, I can provide at least an instance automatically" for those who have ```@Inject``` .
 
-4. Run the app, if can not build, do **clean**  and run it. You'll see the output of ```mPlayground```.
+4. Run the app, if can not build, do **clean**  and run it. You'll see the output of ```mPlayground```, with luck of ```Inject```, it has been created automatically.
 
  
 
