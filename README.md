@@ -71,9 +71,9 @@ foo.doFool();
 
 # Start with example
 
-We define a world named "society" and it has a "playground", a "company" , a "software developer group". The "company" has one boss, one super-user. The "software developer group" has "boss", "super-user", "internal user", "external-user". In our example we only print out some information with ```toString()``` .
+We define a world named "society" and it has a "playground" with nothing, a "company" , a "software developer group". The "company" has one boss, one super-user. The "software developer group" has "boss", "super-user", "internal user", "external-user". In our example we only print out some information with ```toString()``` .
 
-1. Show all in ```SocietyActivity```, we define variable of ```Playground``` with ``` @Inject  ```, that means we don't care how it is created, it might be created "automatically". 
+1. Show all in ```SocietyActivity```, we define variable of ```Playground``` with ``` @Inject  ```, that means we don't care how it'll be created, it might be created "automatically". 
  
  ```java
   
