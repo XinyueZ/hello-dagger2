@@ -10,7 +10,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            tools:context="com.hellodg.society.MainActivity">
+            tools:context="com.hellodg.society.SocietyActivity">
 
             <TextView
                 android:id="@+id/company_output_tv"

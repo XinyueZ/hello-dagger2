@@ -9,5 +9,5 @@ import dagger.Component;
 @Singleton
 @Component(modules = CompanyModule.class)
 public interface CompanyComponent {
-	void buildCompany(MainActivity activity);
+	void buildCompany(SocietyActivity activity);
 }

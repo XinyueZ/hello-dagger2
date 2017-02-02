@@ -13,7 +13,7 @@ import com.hellodg.databinding.ActivityMainBinding;
 
 import javax.inject.Inject;
 
-public class MainActivity extends AppCompatActivity {
+public class SocietyActivity extends AppCompatActivity {
 	@Inject Company mCompany;
 	private ActivityMainBinding mBinding;
 
